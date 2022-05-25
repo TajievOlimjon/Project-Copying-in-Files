@@ -22,6 +22,17 @@ namespace WebApp.Controllers
             return await folderService.CopyToFolderAsync(folder);
         }
 
+        [HttpPost("CopyToListFoldersAsync")]
+        public async Task<string> CopyToListFoldersAsync([FromForm] Folders folders)
+        {
+            return await folderService.CopyToListFoldersAsync(folders);
+        }
+
+        [HttpPost("CopyToListIFormFilesAsync")]
+        public async Task<string> CopyToListIFormFilesAsync([FromForm] List<IFormFile> file)
+        {
+            return await folderService.CopyToListIFormFilesAsync(file);
+        }
 
     }
 }

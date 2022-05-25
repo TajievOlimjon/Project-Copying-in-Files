@@ -12,4 +12,9 @@ namespace Domain
         public IFormFile file { get; set; }
 
     }
+    public class Folders
+    {
+        public List<IFormFile> file { get; set; }
+
+    }
 }
