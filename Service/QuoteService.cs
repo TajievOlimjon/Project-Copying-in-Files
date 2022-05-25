@@ -11,6 +11,8 @@ namespace Service
 {
     public class QuoteService
     {
+       
+
         private string connectionString = "Server=localhost;Port=5432;Database=Quote;User Id=postgres;Password=0711;";
 
 
@@ -19,7 +21,7 @@ namespace Service
         {
             return new NpgsqlConnection(connectionString);
         }
-
+       
         public List<Quotes> GetQuotes()
         {
             using (var con = GetConnection())
@@ -44,10 +46,12 @@ namespace Service
             }
         }
 
+        
 
         public int InsertQuote(Quote quote)
         {
-            using (var con=GetConnection())
+
+            using (var con = GetConnection())
             {
                 var sql = $" Insert into Quote(Author,QuoteText,CategoryId) " +
                           $" values('{quote.Author}','{quote.QuoteText}',{quote.CategoryId}) ";
@@ -56,6 +60,7 @@ namespace Service
 
             }
         }
+
 
         public int UpdateQuote(Quote quote,int Id)
         {
